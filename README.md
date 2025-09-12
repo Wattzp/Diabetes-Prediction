@@ -9,7 +9,7 @@ This dataset is designed to facilitate the prediction of diabetes based on vario
 - [EXPLORATORY DATA ANALYSIS](#exploratory-data-analysis)  
 - [DASHBOARD REPORTING](#dashboard-reporting)  
 - [Tech Stack](#tech-stack)  
-- [Key Findings from Snitch Fashion Sales Visualizations](#Key-Findings-from-Snitch-Fashion-Sales-Visualizations)    
+- [Key Findings from Diabetes Prediction Visualizations](#Key-Findings-from-Diabetes-Prediction-Visualizations)    
 - [License](#license)  
 
 ---
@@ -61,9 +61,91 @@ The scale of this problem is also important to recognize. The Centers for Diseas
 
 
 ## Exploratory Data Analysis
+---
+
+### 1. Setup
+
+```python
+import pandas as pd, numpy as np
+import matplotlib.pyplot as plt, seaborn as sns
+
+sns.set(style="whitegrid")
+plt.rcParams["figure.figsize"] = (10, 6)
+
+df = pd.read_csv("diabetes.csv")
+```
+
+---
+
+### 2. Data Overview
+
+```python
+df.shape
+df.dtypes
+df.head()
+df.describe().T
+```
+
+---
+
+### 3. Missing & Zero Values
+
+```python
+(df == 0).sum()
+(df == 0).mean() * 100
+```
+
+---
+
+### 4. Univariate Analysis
+
+```python
+df.drop("Outcome", axis=1).hist(bins=20, edgecolor="k")
+plt.tight_layout(); plt.show()
+
+for col in df.columns[:-1]:
+    sns.boxplot(x="Outcome", y=col, data=df)
+    plt.title(f"{col} by Outcome"); plt.show()
+```
+
+---
+
+### 5. Correlation & Pairplot
+
+```python
+sns.heatmap(df.corr(), annot=True, cmap="coolwarm")
+plt.title("Correlation Matrix"); plt.show()
+
+sns.pairplot(df, hue="Outcome", vars=["Glucose","BMI","Age","Insulin"])
+plt.show()
+```
+
+---
+
+### 6. Outlier Detection
+
+```python
+Q1 = df.quantile(0.25)
+Q3 = df.quantile(0.75)
+IQR = Q3 - Q1
+
+outliers = ((df < (Q1 - 1.5 * IQR)) | (df > (Q3 + 1.5 * IQR))).sum()
+outliers
+```
+
+---
+
+### 7. Outcome-Based Feature Differences
+
+```python
+pos, neg = df[df.Outcome==1], df[df.Outcome==0]
+{col: pos[col].mean() - neg[col].mean() for col in df.columns[:-1]}
+```
+
+---
 
 
-
+## Tech Stack
 
 
 
