@@ -9,7 +9,8 @@ This dataset is designed to facilitate the prediction of diabetes based on vario
 - [EXPLORATORY DATA ANALYSIS](#exploratory-data-analysis)  
 - [DASHBOARD REPORTING](#dashboard-reporting)  
 - [Tech Stack](#tech-stack)  
-- [Key Findings from Diabetes Prediction Visualizations](#Key-Findings-from-Diabetes-Prediction-Visualizations)    
+- [Key Findings](#key-findings)
+- [Conclusion](#conclusion)   
 - [License](#license)  
 
 ---
@@ -144,13 +145,78 @@ pos, neg = df[df.Outcome==1], df[df.Outcome==0]
 
 ---
 
+## DASHBOARD REPORTING 
+
+
+![DiabetesPredictiion](https://github.com/user-attachments/assets/41614404-80a2-4d80-80aa-945df7ad3b7d)
+
+
 
 ## Tech Stack
 
+Python | Pandas | Seaborn | Plotly | Excel | Jupyter Notebook [Download Here](https://www.anaconda.com/download)
 
+### 📊 Visualization Tools Used  
+- **Seaborn & Matplotlib** for static plots  
+- **Plotly Express** for interactive dashboards  
+- **Pivot Tables in Excel** for grouped summaries and prevalence analysis
 
+---
 
+## Key Findings
 
+#### 1. **Glucose Levels as Primary Indicator**  
+- Diabetic patients consistently exhibit higher glucose readings.  
+- Histogram and scatter plots show a clear separation between diabetic and non-diabetic groups, confirming glucose as the most predictive feature.
+
+#### 2. **BMI and Age Influence Risk**  
+- Boxplots reveal that individuals with diabetes tend to have higher BMI values.  
+- Age-based analysis shows diabetes prevalence increases sharply after age 40, with the highest rates in the 50–69 age group.
+
+#### 3. **Insulin and Skin Thickness Variability**  
+- Scatter plots show wide variation in insulin levels among diabetics, suggesting different subtypes or stages of insulin resistance.  
+- Skin thickness correlates moderately with BMI, indicating its role in obesity-related risk.
+
+#### 4. **Feature Relationships via Correlation Matrix**  
+- Strong positive correlations observed between Glucose, BMI, Age, and the diabetes outcome.  
+- Weak correlations for BloodPressure and SkinThickness suggest limited predictive power.
+
+#### 5. **Scatter Matrix Reveals Clustering**  
+- Interactive Plotly scatter matrix shows diabetic patients clustering in high-glucose and high-BMI regions.  
+- Hover features allow patient-level inspection, enhancing interpretability.
+
+#### 6. **Class Imbalance in Outcome Distribution**  
+- Count plots confirm a 65:35 split between non-diabetic and diabetic cases.  
+- This imbalance is crucial for model training and evaluation strategies.
+
+---
+
+### Conclusion  
+These visualizations provide strong evidence that glucose, BMI, and age are the most influential features in predicting diabetes. The insights gained here lay the foundation for effective model building and real-time risk assessment tools.
+
+---
+## License
+MIT License
+
+Copyright (c) 2025 [Wattzp](https://github.com/Wattzp)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy  
+of this software and associated documentation files (the "Software"), to deal  
+in the Software without restriction, including without limitation the rights  
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell  
+copies of the Software, and to permit persons to whom the Software is  
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all  
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR  
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,  
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE  
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER  
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,  
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE  
+SOFTWARE.
 
 
 
